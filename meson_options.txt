@@ -1,7 +1,11 @@
 option('frontend_url',
-       type: 'string', value: 'http://localhost:3000',
+       type: 'string', value: 'https://localhost:3000',
        description: 'URL of the flathub website')
 
 option('api_url',
-       type: 'string', value: 'http://localhost:8000',
+       type: 'string', value: 'https://localhost:8000',
        description: 'URL of the flathub store API')
+
+option('allow_insecure_localhost',
+       type: 'boolean', value: false,
+       description: 'Allow HTTP endpoints on loopback for local development')

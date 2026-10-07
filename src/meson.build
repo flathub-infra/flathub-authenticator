@@ -3,9 +3,9 @@ flathub_authenticator_sources = [
 ]
 
 flathub_authenticator_deps = [
-  dependency('gio-2.0'),
+  dependency('gio-2.0', version: '>= 2.68'),
   dependency('gio-unix-2.0'),
-  dependency('libsoup-2.4'),
+  dependency('libsoup-3.0'),
   dependency('json-glib-1.0'),
   dependency('libsecret-1'),
 ]
@@ -29,3 +29,11 @@ executable('flathub-authenticator',
   dependencies: flathub_authenticator_deps,
   install: true,
 )
+
+authenticator_test = executable('test-authenticator',
+  '../tests/test-authenticator.c',
+  flatpak_authenticator_dbus_src,
+  application_dbus_src,
+  dependencies: flathub_authenticator_deps,
+)
+test('Authenticator', authenticator_test)

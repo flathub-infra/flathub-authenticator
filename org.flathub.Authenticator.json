@@ -1,12 +1,11 @@
 {
     "app-id" : "org.flathub.Authenticator",
     "runtime" : "org.freedesktop.Platform",
-    "runtime-version" : "21.08",
+    "runtime-version" : "26.08",
     "sdk" : "org.freedesktop.Sdk",
     "command" : "flathub-authenticator",
     "finish-args" : [
-        "--share=network",
-        "--share=ipc"
+        "--share=network"
     ],
     "cleanup" : [
         "/include",
@@ -21,28 +20,10 @@
     ],
     "modules" : [
         {
-            "name" : "libsecret",
-            "buildsystem" : "meson",
-            "config-opts" : [
-                "-Dmanpage=false",
-                "-Dvapi=false",
-                "-Dgtk_doc=false",
-                "-Dintrospection=false",
-                "-Dbash_completion=disabled"
-            ],
-            "sources" : [
-                {
-                    "type" : "git",
-                    "url" : "https://gitlab.gnome.org/GNOME/libsecret.git",
-                    "tag" : "0.20.5",
-                    "commit" : "d64530ac70d9723945d68ca079293ea0f9df9e9f"
-                }
-            ]
-        },
-        {
             "name" : "flathub-authenticator",
             "builddir" : true,
             "buildsystem" : "meson",
+            "run-tests" : true,
             "sources" : [
                 {
                     "type" : "dir",

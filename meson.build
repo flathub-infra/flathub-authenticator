@@ -13,6 +13,7 @@ gnome = import('gnome')
 config_h = configuration_data()
 config_h.set_quoted('FRONTEND_URL', get_option('frontend_url'))
 config_h.set_quoted('BACKEND_URL', get_option('api_url'))
+config_h.set10('ALLOW_INSECURE_LOCALHOST', get_option('allow_insecure_localhost'))
 config_h.set_quoted('PROGRAM_NAME', meson.project_name())
 config_h.set_quoted('PROGRAM_VERSION', meson.project_version())
 configure_file(
